@@ -1,98 +1,58 @@
-# 🚀 TicTacToe Low-Level Design
+# 🚀 TicTacToe Low-Level Design Project
 
 ## Short Description
-Dive into the foundational principles of Object-Oriented Design (OOD) with this elegant Java implementation of the classic Tic-Tac-Toe game. This project meticulously demonstrates core design patterns and modularity, making it an excellent resource for understanding how to construct a robust, scalable, and maintainable application from the ground up. Beyond a simple game, it's a blueprint for clean architecture.
+Dive into the classic game of Tic-Tac-Toe reimagined with a robust and extensible low-level design. This project showcases a clean, object-oriented implementation of the game, built entirely in Java, emphasizing modularity, clear separation of concerns, and fundamental design principles. It's a perfect learning resource for understanding how to break down a common problem into well-defined components.
 
 ## 🛡️ Project Health & Status
-This project is functional and production-ready for its intended purpose: a clear, runnable example of low-level design. It offers a stable foundation for learning and serves as a solid base for further enhancements or as a reference for similar game development initiatives.
+This project is stable and fully functional, demonstrating a complete implementation of the Tic-Tac-Toe game. It's ready for immediate use and serves as an excellent foundation for further enhancements or as a learning tool.
 
 ## ✨ Key Features
-*   **Modular Design**: Clear separation of concerns with distinct classes for `Board`, `Player`, `PlayingPiece`, and game logic.
-*   **Extensible Piece Types**: Easily introduce new playing piece types (e.g., for variations of the game) by extending the `PlayingPiece` class.
-*   **Robust Game Logic**: Implements core game mechanics including move validation, win condition checking, and turn management.
-*   **Console-Based Interface**: A straightforward text-based interface makes it easy to interact with and observe the game flow.
-*   **Pure Java Implementation**: Developed purely in Java, showcasing best practices in OOD.
+*   **Object-Oriented Design:** A clear, class-based structure for `Board`, `Player`, `PlayingPiece`, and game logic.
+*   **Modular Architecture:** Easily understandable components that can be extended or modified independently.
+*   **Player & Piece Abstraction:** Support for multiple players, each with distinct playing pieces (X or O).
+*   **Game State Management:** Robust handling of game turns, move validation, and win/draw condition detection.
+*   **Command-Line Interface:** An interactive console experience to play the game.
 
 ## Who is this for?
-*   **Aspiring Software Engineers**: Gain practical experience with Object-Oriented Programming (OOP) concepts.
-*   **Interview Preparation**: Excellent for practicing and demonstrating low-level design skills for technical interviews.
-*   **Educators & Students**: A clear, self-contained example for teaching and learning software design.
-*   **Java Developers**: Explore a well-structured Java project using Maven as the build tool.
+This project is ideal for:
+*   Software developers looking to sharpen their low-level design skills.
+*   Students learning object-oriented programming (OOP) and design patterns in Java.
+*   Anyone seeking a clear, practical example of how to structure a simple game application from the ground up.
 
 ## Technology Stack & Architecture
-This project is built with a focused, minimal stack to highlight design principles without external complexities:
-
-*   **Core Language**: Java
-*   **Build Tool**: Apache Maven (`pom.xml`)
+This project is built using:
+*   **Core Language:** Java
+*   **Build Tool:** Apache Maven
 
 ## 📊 Architecture & Database Schema
-The TicTacToe project employs a classic Object-Oriented design, featuring a clear separation of concerns. The core game logic is encapsulated within the `TicTacToe` class, orchestrating interactions between the `Board` and `Player` objects, which utilize `PlayingPiece` and `PieceType` for representing game state.
+This project follows a clear object-oriented application structure. Below is a high-level flowchart illustrating the main components and their interactions:
 
 ```mermaid
-classDiagram
-    class TicTacToe {
-        +startGame()
-        -initializeGame()
-        -playTurn(Player)
-        -checkWinner()
-    }
-    class Board {
-        +cells: PlayingPiece[][]
-        +displayBoard()
-        +addPiece(row, col, PlayingPiece): boolean
-        +getFreeCells(): List~Pair~
-    }
-    class Player {
-        +name: String
-        +piece: PlayingPiece
-        +getId(): String
-    }
-    class PlayingPiece {
-        +type: PieceType
-        +PlayingPiece(PieceType)
-    }
-    class PlayingPieceX {
-        +PlayingPieceX()
-    }
-    class PlayingPieceO {
-        +PlayingPieceO()
-    }
-    enum PieceType {
-        X
-        O
-    }
-
-    TicTacToe "1" -- "1" Board : uses
-    TicTacToe "1" -- "*" Player : manages
-    Player "1" -- "1" PlayingPiece : owns
-    PlayingPiece <|-- PlayingPieceX : extends
-    PlayingPiece <|-- PlayingPieceO : extends
-    PlayingPiece "1" -- "1" PieceType : has
-    Board "1" -- "*" PlayingPiece : contains
+graph TD
+    A["Main Class (Entry Point)"] --> B["TicTacToe Game Logic"]
+    B --> C["Board (Game State)"]
+    B --> D["Player Management"]
+    D --> E["PlayingPiece (X/O)"]
+    E --> F{"PieceType (Enum: X, O)"}
 ```
 
 ## ⚙️ Configuration & Deployment
-This project requires a standard Java Development Kit (JDK) and Apache Maven installed on your system. No complex environment variables or external services are necessary.
+This project is a standard Maven-based Java application. There are no complex external configurations or dependencies beyond a Java Development Kit (JDK) and Maven.
 
 ## ⚡ Quick Start Guide
+To get this Tic-Tac-Toe project up and running:
 
-To get the TicTacToe game up and running locally, follow these simple steps:
-
-1.  **Clone the Repository**
+1.  **Clone the repository:**
     ```bash
     git clone https://github.com/grewal16/low_level_design.git
     cd low_level_design/TicTacToe
     ```
-
-2.  **Build the Project**
-    Use Maven to compile the source code and package it into an executable JAR:
+2.  **Build the project using Maven:**
     ```bash
     mvn clean install
     ```
-
-3.  **Run the Game**
-    Execute the compiled JAR file:
+3.  **Run the application:**
     ```bash
     java -jar target/TicTacToe-1.0-SNAPSHOT.jar
     ```
-    You will be prompted to enter the board size and player names to start playing in your console!
+    Follow the on-screen prompts to start playing Tic-Tac-Toe!
