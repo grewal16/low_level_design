@@ -1,4 +1,4 @@
-# 🚀 Low-Level Design Examples
+# 🚀 low_level_design - TicTacToe Example
 
 <p align="center">
     <a href="https://github.com/grewal16/low_level_design/stargazers"><img src="https://img.shields.io/github/stars/grewal16/low_level_design?style=for-the-badge" alt="GitHub stars"></a>
@@ -7,71 +7,70 @@
 </p>
 
 ## Short Description
-Dive deep into the art of software engineering with the **Low-Level Design Examples** repository! This project serves as a practical showcase for implementing fundamental object-oriented design principles through well-structured, maintainable code. Currently, it features a robust and extensible **Tic-Tac-Toe** game implementation, meticulously crafted to demonstrate core LLD concepts in action. It's the perfect resource for dissecting how complex systems can be broken down into manageable, interacting components.
+
+Dive into the foundational principles of software architecture with the **TicTacToe Low-Level Design** project! This repository showcases a meticulously crafted, object-oriented implementation of the classic Tic-Tac-Toe game in Java. It serves as an exceptional educational resource for understanding core low-level design patterns, SOLID principles, and clean code practices in action, providing a clear blueprint for building robust, extensible applications from the ground up.
 
 ## 🛡️ Project Health & Status
-This repository hosts stable and functional demonstrations of low-level design patterns. The included Tic-Tac-Toe project is a complete, self-contained application, ready for immediate compilation and execution. While dedicated automated test suites are not yet explicitly integrated, the codebase is designed for clarity and maintainability, ensuring high functional integrity. It's an excellent foundation for active learning and further enhancement.
+
+This project is a functional, self-contained prototype demonstrating robust low-level design concepts. While not configured for continuous integration, its clear structure and complete implementation make it a stable and ready-to-explore educational resource. It is fully operational and serves as an excellent reference for anyone looking to understand practical OOD.
 
 ## ✨ Key Features
-*   **Object-Oriented Tic-Tac-Toe:** A fully playable command-line Tic-Tac-Toe game, illustrating classic game logic.
-*   **Modular Design:** Clearly separated concerns with dedicated classes for `Board`, `Player`, `PlayingPiece`, and game logic (`TicTacToe`) for enhanced readability and maintainability.
-*   **Extensible Architecture:** Designed to easily introduce new game pieces, players, or even variations of rules without significant refactoring.
-*   **Clean Code Principles:** Exemplifies best practices for class design, encapsulation, abstraction, and polymorphism.
-*   **Maven-Driven Build:** Standardized project structure and build process using Apache Maven, ensuring ease of setup and deployment.
+
+*   **Pure Object-Oriented Design:** A clean separation of concerns with distinct classes for `Board`, `Player`, `PlayingPiece`, and game logic.
+*   **Extensible Architecture:** Designed to be easily adaptable for future enhancements, such as different game modes or AI players.
+*   **Clear Game Flow:** Implements turn-based gameplay, move validation, and comprehensive win condition checks.
+*   **Educational Focus:** Provides a hands-on example of how to apply design patterns for a simple yet effective system.
 
 ## Who is this for?
-This repository is an invaluable asset for:
-*   **Aspiring Software Engineers:** Learn how to translate high-level requirements into detailed, object-oriented designs.
-*   **Interview Preparation:** Practice and understand common low-level design interview questions with a concrete, hands-on example.
-*   **Java Developers:** Explore well-structured Java code that adheres to industry best practices and design patterns.
-*   **Educators:** Utilize as a teaching aid for demonstrating fundamental OOD concepts in a practical setting.
+
+This project is an invaluable asset for:
+
+*   **Aspiring Software Developers:** Learn by example how to approach low-level design problems.
+*   **Computer Science Students:** Reinforce theoretical knowledge of object-oriented programming with practical application.
+*   **Interview Preparation:** A perfect case study for understanding and explaining LLD concepts.
+*   **Anyone Curious about Game Development:** See the inner workings of a classic game from an architectural perspective.
 
 ## Technology Stack & Architecture
-This project is built with a focus on core Java development practices, demonstrating robust, platform-independent application design.
-*   **Core Language:** Java
-*   **Build Automation:** Apache Maven
-*   **Paradigm:** Object-Oriented Programming (OOP)
 
-The architecture emphasizes a clear separation of concerns, utilizing distinct classes for game entities and logic to create a flexible, scalable, and maintainable system.
+This project is built using:
+
+*   **Core Language:** Java
+*   **Build Tool:** Apache Maven
+
+The architecture employs fundamental Object-Oriented Programming (OOP) principles, with a clear separation between game logic, data models, and player representation.
 
 ## 📊 Architecture & Database Schema
-The Tic-Tac-Toe game demonstrates a classic Model-View-Controller (MVC) pattern-like separation, focusing heavily on the Model and Controller aspects within a command-line interface.
+
+The core architecture of the TicTacToe game is designed for clarity and extensibility, emphasizing the interaction between key components:
 
 ```mermaid
 graph TD
-    A["Main (Application Entrypoint)"] --> B["TicTacToe (Game Controller)"];
-    B --> C["Player (User Input/Move)"];
-    B --> D["Board (Game State/Grid)"];
-    C --> D;
-    D -- "Updates Cell" --> E["PlayingPiece (X/O)"];
-    B -- "Checks Game Status" --> D;
-    D -- "Returns Game State" --> B;
-    B --> F{"Is Game Over?"};
-    F -- "No, Next Turn" --> C;
-    F -- "Yes" --> G["Declare Result"];
+    A["Main.java (Application Entry)"] --> B["TicTacToe.java (Game Controller)"];
+    B --> C["Board (Game State Management)"];
+    B --> D["Player (User/Opponent)"];
+    D --> E["PlayingPiece (Symbol X/O)"];
+    E --> F["PieceType (Enum for X/O)"];
 ```
 
 ## ⚙️ Configuration & Deployment
-The project is configured using Maven, providing a standard and straightforward build process. No complex environment variables or external services are required beyond a Java Development Kit (JDK).
 
-To set up the project:
-1.  Ensure you have **Java Development Kit (JDK) 8 or higher** installed.
-2.  Ensure you have **Apache Maven 3.x or higher** installed.
+This project is configured using Maven, simplifying dependency management and the build process. No external services or complex configurations are required.
 
 ## ⚡ Quick Start Guide
-Get the Tic-Tac-Toe game up and running in no time!
 
-1.  **Clone the repository:**
+Get the TicTacToe game up and running in a few simple steps:
+
+1.  **Clone the Repository:**
     ```bash
     git clone https://github.com/grewal16/low_level_design.git
     cd low_level_design/TicTacToe
     ```
-2.  **Build the project using Maven:**
+2.  **Build the Project with Maven:**
     ```bash
     mvn clean install
     ```
-3.  **Run the Tic-Tac-Toe game:**
+3.  **Run the Game:**
     ```bash
     java -jar target/TicTacToe-1.0-SNAPSHOT.jar
     ```
-    Follow the prompts in your console to play!
+    Follow the on-screen prompts in your terminal to play the game!
