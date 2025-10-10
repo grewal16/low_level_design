@@ -1,52 +1,45 @@
-# 🚀 Tic Tac Toe: A Low Level Design Example
+# 🚀 TicTacToe Game
 
 ## Short Description
-Dive into the foundational principles of object-oriented design with this classic Tic Tac Toe game implementation. This project serves as a clear, concise example of Low-Level Design (LLD), demonstrating how to structure a simple application for maintainability, extensibility, and clarity using modern Java practices. Perfect for developers looking to grasp core design patterns in a practical context.
+Dive into a meticulously crafted implementation of the classic Tic-Tac-Toe game, engineered with robust Low-Level Design (LLD) principles in Java. This project serves as an excellent reference for building scalable, maintainable, and object-oriented software solutions from the ground up.
 
 ## 🛡️ Project Health & Status
-This project is a functional, self-contained demonstration of Low-Level Design principles. It is considered a complete prototype, designed for educational purposes and immediate utility. While comprehensive automated test suites are not included, the codebase is stable and ready for exploration and extension.
+This TicTacToe implementation is functional and ready for execution. It's a complete, self-contained demonstration of core game logic, showcasing clean architecture and design patterns. While focused on core LLD, it provides a solid foundation for further expansion or integration.
 
 ## ✨ Key Features
-*   **Clean Object-Oriented Design:** Experience a well-structured codebase adhering to SOLID principles.
-*   **Modular Game Components:** Clearly defined classes for `Board`, `Player`, `PlayingPiece`, and `Game` facilitate understanding and modification.
-*   **Turn-Based Gameplay:** Implements the core logic for managing player turns and moves.
-*   **Win/Draw Condition Detection:** Intelligent logic to determine game outcomes.
-*   **Console-Based Interface:** A straightforward command-line interface for interactive gameplay.
-*   **Extensible Piece Types:** Easy to add new piece types or game variations.
+*   **Object-Oriented Design:** Experience a clean, modular structure with distinct classes for `Board`, `Player`, `PlayingPiece`, and game orchestration.
+*   **Extensible Game Logic:** Designed for easy modification and extension, allowing for future enhancements like AI opponents or different board sizes.
+*   **Clear Separation of Concerns:** Core game mechanics are isolated in logical units, making the codebase easy to understand and maintain.
+*   **Player & Piece Management:** Robust handling of players, their unique playing pieces (X and O), and turns.
+*   **Comprehensive Board State Tracking:** Efficiently manages the game board, checks for winning conditions, and identifies draw scenarios.
 
 ## Who is this for?
-*   **Aspiring Software Developers:** Learn best practices for structuring code from the ground up.
-*   **Interview Preparation:** A hands-on example to solidify your understanding of Low-Level Design questions.
-*   **Java Enthusiasts:** Explore a practical application of Java in a simple game development context.
-*   **Educators:** A ready-to-use example for teaching object-oriented design.
+*   **Aspiring Software Developers:** Learn by example how to apply LLD concepts to a real-world problem.
+*   **Interview Preparation:** Ideal for practicing and understanding common system design questions related to game development.
+*   **Java Enthusiasts:** Explore well-structured Java code for building console-based applications.
+*   **Educators:** A perfect, ready-to-use example for teaching object-oriented programming and design principles.
 
 ## Technology Stack & Architecture
-This project is built using a robust and widely adopted technology stack, ensuring clarity and broad accessibility:
-
-*   **Language:** Java
-*   **Build Tool:** Apache Maven
+This project is built entirely in **Java**, leveraging **Maven** for dependency management and project automation. It's a testament to powerful, standalone applications achievable with a pure Java stack.
 
 ## 📊 Architecture & Database Schema
-This project's architecture focuses on an in-memory game state, emphasizing the interaction between core game components. The flow outlines a typical turn-based game loop.
+The core of the TicTacToe game is built around a clear object model, establishing well-defined relationships between key game entities.
 
 ```mermaid
-graph TD
-    A["Start Game"] --> B["Initialize Board & Players"];
-    B --> C{"Game Loop"};
-    C -- "Player's Turn" --> D["Display Board"];
-    D --> E["Get Player Input (Move)"];
-    E --> F["Validate & Apply Move"];
-    F --> G{"Check Game State"};
-    G -- "Win/Draw" --> H["Announce Result"];
-    G -- "Continue" --> C;
-    H --> I["End Game"];
+erDiagram
+    TicTacToeGame ||--o{ Player : manages
+    TicTacToeGame ||--|{ Board : contains
+    Player ||--|| PlayingPiece : uses
+    Board ||--o{ PlayingPiece : places
+    PlayingPiece ||--|| PieceType : "is of type"
 ```
 
 ## ⚙️ Configuration & Deployment
-This project is a standard Maven-based Java application. No complex external configurations or infrastructure setups are required.
+This project requires a Java Development Kit (JDK) (version 8 or higher is recommended) and Apache Maven to be installed on your system. No complex configurations or external services are needed.
 
 ## ⚡ Quick Start Guide
-Get the Tic Tac Toe game up and running in a few simple steps:
+
+To get this TicTacToe game up and running, follow these simple steps:
 
 1.  **Clone the Repository:**
     ```bash
@@ -54,13 +47,13 @@ Get the Tic Tac Toe game up and running in a few simple steps:
     cd low_level_design/TicTacToe
     ```
 2.  **Build the Project:**
-    Use Maven to compile the source code and package it into an executable JAR file.
+    Use Maven to compile the source code and package it into an executable JAR.
     ```bash
     mvn clean install
     ```
 3.  **Run the Game:**
-    Execute the generated JAR file from the `target` directory.
+    Execute the compiled JAR file.
     ```bash
     java -jar target/TicTacToe-1.0-SNAPSHOT.jar
     ```
-    Follow the on-screen prompts to play the game!
+    The game will start in your console, prompting players for their moves.
